@@ -75,6 +75,8 @@ contract MicroTradeEnergy {
 
     /// @notice Settle against metered delivery. In production only a registered
     /// meter oracle may call this; here the buyer settles for demo purposes.
+    /// Testnet note: the seller bond is a recorded benchmark, not pre-funded,
+    /// so any penalty is deducted from the payment (production escrows it).
     function settleForward(uint256 id, uint256 deliveredWh) external {
         Forward storage f = forwards[id];
         if (f.status != Status.Active) revert AlreadySettled();
@@ -105,15 +107,18 @@ contract MicroTradeEnergy {
 
         emit ForwardSettled(id, deliveredWh, payment, penalty);
 
-        // Effects before interactions.
+        // Effects before interactions. The contract holds only the buyer
+        // escrow (the bond is a recorded slash benchmark, not pre-funded),
+        // so the penalty is taken from the payment: outflows always equal
+        // the escrow held and settlement can never mint funds.
         uint256 refund = f.escrow > payment ? f.escrow - payment : 0;
+        if (penalty > payment + refund) penalty = payment + refund;
+        uint256 sellerPayout = payment > penalty ? payment - penalty : 0;
         // Buyer refund + compensation.
         if (refund + penalty > 0) {
             (bool okB, ) = f.buyer.call{value: refund + penalty}("");
             require(okB, "buyer payout failed");
         }
-        // Seller payment + remaining bond.
-        uint256 sellerPayout = payment + (f.bond > penalty ? f.bond - penalty : 0);
         if (sellerPayout > 0) {
             (bool okS, ) = f.seller.call{value: sellerPayout}("");
             require(okS, "seller payout failed");
