@@ -62,7 +62,7 @@ server/  sim/engine|history|load|weather|households  ai/model|forecaster
 shared/  types.ts  utils.ts
 src/     pages/Overview|Forecast|Market|Ledger|Agents|Docs
          components/MicrogridScene|Charts|ui  lib/store|api|format
-contracts/MicroTradeEnergy.sol   tests/auction|model|ledger
+contracts/MicroTradeEnergy.sol (V1, deployed Sepolia) + MicroTradeEnergyV2.sol (hardened: staked bond, oracle-gated settle/mint, reentrancy guard)   tests/auction|model|ledger
 data/    state.json (persisted world)  weather-cache.json
 ```
 
