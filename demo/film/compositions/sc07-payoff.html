@@ -1,0 +1,42 @@
+<html lang="en" data-composition-id="sc07" data-composition-variables='[{"id":"forwardCount","type":"string","label":"Forward count","default":"0"},{"id":"contractOwner","type":"string","label":"Contract owner","default":"0x1c4B…0F8E3"}]'>
+<head><meta charset="UTF-8" /><title>Payoff</title></head>
+<body>
+<template>
+<style>
+#sc07-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc07-card { position: absolute; left: 50%; top: 50%; width: 1240px; z-index: 3; background: rgba(12,18,16,0.94); border: 1px solid rgba(52,211,153,0.4); border-radius: 22px; padding: 64px 72px; }
+#sc07-card .kicker { display: block; margin-bottom: 26px; }
+#sc07-card h2 { font-family: "Inter", sans-serif; font-weight: 700; font-size: 64px; color: #e8f1ed; letter-spacing: -0.02em; margin-bottom: 30px; }
+#sc07-rows { font-family: "JetBrains Mono", monospace; font-size: 30px; line-height: 2.1; color: #9db8ad; }
+#sc07-rows .v { color: #e8f1ed; }
+#sc07-rows .m { color: #34d399; }
+</style>
+<div id="sc07-root" data-composition-id="sc07" data-duration="15">
+  <img class="clip" data-start="0" data-duration="15" data-track-index="0" src="assets/img/still_overview.png" style="object-fit: cover; width: 100%; height: 100%;" />
+  <div class="shade"></div>
+  <audio id="sc07-vo" src="assets/vo/07-payoff.mp3" data-start="1" data-duration="11.98" data-track-index="11" data-volume="1"></audio>
+  <div id="sc07-card">
+    <span class="kicker" id="sc07-kick">Live on Base Sepolia &middot; chain 84532</span>
+    <h2 id="sc07-h">MicroTradeEnergyV2</h2>
+    <div id="sc07-rows">
+      <div>contract&nbsp;&nbsp;<span class="v">0x45C0Be734cF808fcab42E285F33a7a811cc8EB00</span></div>
+      <div>owner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v" data-var-text="contractOwner">0x1c4B…0F8E3</span></div>
+      <div>forwards&nbsp;&nbsp;<span class="m" data-var-text="forwardCount">0</span></div>
+      <div>escrow&nbsp;&nbsp;&nbsp;&nbsp;buyer ETH &middot; bond&nbsp;<span class="m">staked</span> &middot; settle&nbsp;<span class="m">oracle</span></div>
+    </div>
+  </div>
+  <div id="sc07-cap" class="clip cap" data-start="1" data-duration="13" data-track-index="7"><span>Live on Base Sepolia.</span></div>
+</div>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  tl.fromTo("#sc07-card", { opacity: 0, y: 60, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power4.out" }, 1.2);
+  gsap.set("#sc07-card", { xPercent: -50, yPercent: -50 });
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc07"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

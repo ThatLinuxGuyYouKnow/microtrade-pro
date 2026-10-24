@@ -1,0 +1,26 @@
+<html lang="en" data-composition-id="sc08">
+<head><meta charset="UTF-8" /><title>Claim</title></head>
+<body>
+<template>
+<style>
+#sc08-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc08-line { position: absolute; left: 0; right: 0; top: 50%; text-align: center; z-index: 3; }
+#sc08-line .title { font-size: 104px; }
+</style>
+<div id="sc08-root" data-composition-id="sc08" data-duration="5">
+  <video id="sc08-video" class="clip" data-start="0" data-duration="5" data-track-index="0" muted playsinline src="assets/video/claim_orbit.mp4"></video>
+  <div id="sc08-line"><span class="title" id="sc08-t">Sunlight, <span class="accent">traded next door.</span></span></div>
+</div>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  gsap.set("#sc08-line", { yPercent: -50 });
+  tl.fromTo("#sc08-t", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.9, ease: "power4.out" }, 1.2);
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc08"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

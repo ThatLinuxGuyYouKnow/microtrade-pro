@@ -1,0 +1,44 @@
+<html lang="en" data-composition-id="sc02">
+<head><meta charset="UTF-8" /><title>Tension</title></head>
+<body>
+<template>
+<style>
+#sc02-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc02-dusk { position: absolute; inset: 0; background: rgba(20, 12, 4, 0.38); z-index: 1; }
+#sc02-copy { position: absolute; left: 120px; top: 150px; z-index: 3; }
+#sc02-copy .kicker { display: block; margin-bottom: 22px; }
+#sc02-counter { position: absolute; right: 120px; bottom: 220px; z-index: 3; text-align: right; }
+#sc02-counter .num { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 110px; color: #f5b84a; display: block; line-height: 1; }
+#sc02-counter .lbl { font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.18em; color: #e8f1ed; display: block; margin-top: 12px; }
+#sc02-t1, #sc02-t2 { display: block; }
+</style>
+<div id="sc02-root" data-composition-id="sc02" data-duration="13">
+  <video id="sc02-video" class="clip" data-start="0" data-duration="13" data-track-index="0" muted playsinline src="assets/video/payoff_orbit.mp4"></video>
+  <div id="sc02-dusk"></div>
+  <audio id="sc02-vo" src="assets/vo/02-tension.mp3" data-start="0.5" data-duration="11.06" data-track-index="11" data-volume="1"></audio>
+  <div id="sc02-copy">
+    <span class="kicker" id="sc02-kick">The old way</span>
+    <span class="title" id="sc02-t1">Most rooftop solar</span>
+    <span class="title" id="sc02-t2">is <span class="amber">wasted.</span></span>
+  </div>
+  <div id="sc02-counter">
+    <span class="num" id="c02-a">148.2</span>
+    <span class="lbl">KWH PUSHED TO THE GRID FOR PENNIES &mdash; TODAY</span>
+  </div>
+  <div id="sc02-cap" class="clip cap" data-start="1" data-duration="11" data-track-index="7"><span>Exported for pennies — bought back at full price.</span></div>
+</div>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  tl.fromTo("#sc02-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 0.4);
+  tl.fromTo("#sc02-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 0.7);
+  tl.fromTo("#sc02-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 0.9);
+  tl.fromTo("#sc02-counter", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, 4.0);
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc02"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

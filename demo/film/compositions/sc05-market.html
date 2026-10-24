@@ -1,0 +1,43 @@
+<html lang="en" data-composition-id="sc05">
+<head><meta charset="UTF-8" /><title>Market</title></head>
+<body>
+<template>
+<style>
+#sc05-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc05-wrap { position: absolute; inset: -60px; }
+#sc05-wrap img { width: 100%; height: 100%; object-fit: cover; }
+#sc05-tag { position: absolute; left: 120px; bottom: 200px; z-index: 3; }
+#sc05-tag .kicker { display: block; margin-bottom: 16px; }
+</style>
+<div id="sc05-root" data-composition-id="sc05" data-duration="19">
+  <div id="sc05-wrap"><img class="clip" data-start="0" data-duration="19" data-track-index="0" src="assets/img/still_market.png" /></div>
+  <audio id="sc05-vo" src="assets/vo/05-market.mp3" data-start="1" data-duration="16.1" data-track-index="11" data-volume="1"></audio>
+  <div id="sc05-tag">
+    <span class="kicker" id="sc05-kick">Trade &middot; day-ahead auction</span>
+    <div class="tag" id="sc05-line"><span class="m">98.4 kWh</span> cleared &middot; 71 forwards &middot; avg <span class="m">$0.175</span>/kWh</div>
+  </div>
+  <div id="sc05-cap" class="clip cap" data-start="1" data-duration="17" data-track-index="7"><span>One clearing price per hour.</span></div>
+</div>
+<script>
+(function () {
+  function camMove(tl, target, at, opts) {
+    opts = opts || {};
+    gsap.set(target, { transformPerspective: 1200, transformOrigin: opts.origin || "50% 50%" });
+    tl.to(target, { scale: 1 + (opts.zoom || 0.11), x: opts.slideX || 0, y: opts.slideY || 0, duration: opts.dur || 1.2, ease: "power2.inOut" }, at);
+  }
+  function camReset(tl, target, at, dur) {
+    tl.to(target, { scale: 1, x: 0, y: 0, duration: dur || 1.2, ease: "power2.inOut" }, at);
+  }
+  var tl = gsap.timeline({ paused: true });
+  tl.fromTo("#sc05-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 1.2);
+  tl.fromTo("#sc05-line", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" }, 1.5);
+  camMove(tl, "#sc05-wrap", 5, { zoom: 0.15, origin: "45% 30%", slideY: -20, dur: 1.0 });
+  camReset(tl, "#sc05-wrap", 16, 1.2);
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc05"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html lang="en" data-composition-id="sc09">
+<head><meta charset="UTF-8" /><title>End card</title></head>
+<body>
+<template>
+<style>
+#sc09-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc09-mark { position: absolute; left: 50%; top: 34%; width: 300px; z-index: 2; }
+#sc09-mark img { width: 100%; display: block; }
+#sc09-ring { position: absolute; left: 50%; top: 34%; width: 300px; height: 300px; border: 3px solid #34d399; border-radius: 50%; opacity: 0; z-index: 2; }
+#sc09-name { position: absolute; left: 0; right: 0; top: 56%; text-align: center; z-index: 2; }
+#sc09-name .title { font-size: 88px; }
+#sc09-cta { position: absolute; left: 0; right: 0; top: 72%; text-align: center; z-index: 2; font-family: "JetBrains Mono", monospace; font-size: 28px; line-height: 2; color: #9db8ad; }
+#sc09-cta .m { color: #34d399; }
+/* --- inlined oversized-cursor (ids prefixed c9) --- */
+#c9-box { position: absolute; inset: 0; overflow: hidden; isolation: isolate; container-type: size; z-index: 5; pointer-events: none; }
+.c9-stage { position: absolute; inset: 0; }
+.c9-target { position: absolute; left: 50%; top: 50%; padding: 0.6cqw 1cqw; border-radius: 0.55cqw; border: 1px solid rgba(255,255,255,0.14); background: #0c1210; z-index: 10; }
+.c9-row { display: flex; align-items: center; gap: 0.45cqw; }
+.c9-check { width: 1cqw; height: 1cqw; min-width: 14px; min-height: 14px; flex: none; fill: none; stroke: #34d399; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.c9-label { font-family: "Inter", sans-serif; font-size: clamp(12px, 1cqw, 20px); font-weight: 600; color: #e8f1ed; white-space: nowrap; }
+.c9-cursor { position: absolute; left: 0; top: 0; width: 11.67cqw; height: 11.67cqw; pointer-events: none; filter: drop-shadow(0 0.52cqw 0.73cqw rgba(0,0,0,0.5)); z-index: 20; }
+.c9-cursor svg { display: block; width: 100%; height: 100%; fill: #ffffff; stroke: #141414; stroke-width: 1.4; stroke-linejoin: round; }
+</style>
+<div id="sc09-root" data-composition-id="sc09" data-duration="16">
+  <audio id="sc09-vo" src="assets/vo/08-close.mp3" data-start="0.5" data-duration="13.66" data-track-index="11" data-volume="1"></audio>
+  <div id="sc09-mark"><img id="sc09-logo" src="assets/img/logo.svg" /></div>
+  <div id="sc09-ring"></div>
+  <div id="sc09-name"><span class="title" id="sc09-t">MicroTrade <span class="accent">Pro</span></span></div>
+  <div id="sc09-cta">
+    <div id="sc09-c1">Code open &middot; chain verifiable &middot; IEEE ClimateChain &rsquo;26</div>
+    <div id="sc09-c2"><span class="m">0x45C0…8EB00</span> &middot; Base Sepolia &middot; full story in the Devpost entry</div>
+  </div>
+  <div id="c9-box">
+    <div class="c9-stage">
+      <div class="c9-target" id="c9-target"><div class="c9-row">
+        <svg class="c9-check" id="c9-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
+        <span class="c9-label">MicroTrade Pro</span>
+      </div></div>
+      <div class="c9-cursor" id="c9-cursor"><svg viewBox="0 0 24 24"><path d="M5 3 L5 19 L9 15 L12 22 L15 20.5 L11.5 14 L18 14 Z" /></svg></div>
+    </div>
+  </div>
+  <div id="sc09-cap" class="clip cap" data-start="0.5" data-duration="15" data-track-index="7"><span>MicroTrade Pro · code open · chain verifiable.</span></div>
+</div>
+<script>
+(function () {
+  var cursor = document.getElementById("c9-cursor");
+  var target = document.getElementById("c9-target");
+  var check = document.getElementById("c9-check");
+  function xAt(p) { return (p / 100) * 1920; }
+  function yAt(p) { return (p / 100) * 1080; }
+  gsap.set(cursor, { xPercent: -20.83, yPercent: -12.5 });
+  gsap.set(target, { xPercent: -50, yPercent: -50, scale: 1 });
+  target.style.left = "50%"; target.style.top = "34%";
+  gsap.set("#sc09-mark", { xPercent: -50, yPercent: -50 });
+  gsap.set("#sc09-ring", { xPercent: -50, yPercent: -50, scale: 0.6 });
+
+  var tl = gsap.timeline({ paused: true });
+  // cursor enters, clicks the mark at 2.2
+  tl.fromTo(cursor, { x: xAt(48), y: yAt(116) }, { x: xAt(50), y: yAt(34), duration: 0.5, ease: "power3.out" }, 1.5);
+  tl.to(cursor, { scale: 0.9, duration: 0.1, ease: "power2.in", transformOrigin: "20.83% 12.5%" }, 2.2);
+  tl.to(cursor, { scale: 1, duration: 0.22, ease: "power2.out", transformOrigin: "20.83% 12.5%" }, 2.3);
+  tl.to(check, { opacity: 1, duration: 0.3 }, 2.3);
+  // ring pulse + wordmark + CTAs
+  tl.fromTo("#sc09-ring", { opacity: 0.9, scale: 0.6 }, { opacity: 0, scale: 1.5, duration: 1.0, ease: "power2.out" }, 2.3);
+  tl.fromTo("#sc09-t", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" }, 2.5);
+  tl.fromTo("#sc09-c1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 3.1);
+  tl.fromTo("#sc09-c2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 3.5);
+  tl.to(cursor, { y: yAt(120), duration: 0.4, ease: "power2.in" }, 4.2);
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc09"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

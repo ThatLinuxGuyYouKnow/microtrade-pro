@@ -1,0 +1,1 @@
+Each morning, the agents bid into a uniform-price double auction. One clearing price per hour. Matched trades become forward contracts: the buyer escrows payment, the seller stakes a twelve percent bond. If the sun doesn't deliver, the bond pays.

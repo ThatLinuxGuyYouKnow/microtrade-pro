@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("assets/fonts/jetbrains-mono.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      :root {
+        --ground: #060908;
+        --ink: #e8f1ed;
+        --dim: #9db8ad;
+        --mint: #34d399;
+        --solar: #f5b84a;
+        --panel: #0c1210;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0; width: 1920px; height: 1080px;
+        overflow: hidden; background: var(--ground);
+      }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--ground); }
+      .clip { position: absolute; inset: 0; }
+      video.clip, img.clip { width: 100%; height: 100%; object-fit: cover; }
+      .frame-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .kicker {
+        font-family: "JetBrains Mono", monospace; font-size: 26px; letter-spacing: 0.32em;
+        color: var(--mint); text-transform: uppercase;
+      }
+      .title {
+        font-family: "Inter", sans-serif; font-weight: 700; font-size: 96px;
+        letter-spacing: -0.02em; line-height: 1.02; color: var(--ink);
+      }
+      .title .accent { color: var(--mint); }
+      .title .amber { color: var(--solar); }
+      .sub {
+        font-family: "Inter", sans-serif; font-weight: 400; font-size: 34px;
+        line-height: 1.4; color: var(--dim); max-width: 1100px;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace; font-size: 30px; letter-spacing: 0.08em;
+        color: var(--ink); background: rgba(6, 9, 8, 0.72);
+        border: 1px solid rgba(52, 211, 153, 0.35); border-radius: 10px;
+        padding: 18px 26px;
+      }
+      .tag .m { color: var(--mint); }
+      .cap {
+        position: absolute; left: 0; right: 0; top: auto; bottom: 64px; height: auto;
+        display: flex; justify-content: center; align-items: flex-end; pointer-events: none;
+      }
+      .cap span {
+        font-family: "Inter", sans-serif; font-weight: 500; font-size: 40px;
+        color: var(--ink); background: rgba(6, 9, 8, 0.66);
+        padding: 12px 30px; border-radius: 12px; text-align: center;
+      }
+      .shade { position: absolute; inset: 0; background: rgba(6, 9, 8, 0.55); }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="133.5"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="main-sc01" class="clip" data-composition-id="sc01" data-composition-src="compositions/sc01-hook.html" data-start="0" data-duration="12" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc02" class="clip" data-composition-id="sc02" data-composition-src="compositions/sc02-tension.html" data-start="12" data-duration="13" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc03" class="clip" data-composition-id="sc03" data-composition-src="compositions/sc03-reveal.html" data-start="25" data-duration="12.5" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc04" class="clip" data-composition-id="sc04" data-composition-src="compositions/sc04-forecast.html" data-start="37.5" data-duration="19" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc05" class="clip" data-composition-id="sc05" data-composition-src="compositions/sc05-market.html" data-start="56.5" data-duration="19" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc06" class="clip" data-composition-id="sc06" data-composition-src="compositions/sc06-ledger.html" data-start="75.5" data-duration="22" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc07" class="clip" data-composition-id="sc07" data-composition-src="compositions/sc07-payoff.html" data-start="97.5" data-duration="15" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc08" class="clip" data-composition-id="sc08" data-composition-src="compositions/sc08-claim.html" data-start="112.5" data-duration="5" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+      <div id="main-sc09" class="clip" data-composition-id="sc09" data-composition-src="compositions/sc09-endcard.html" data-start="117.5" data-duration="16" data-track-index="0" data-width="1920" data-height="1080" data-track-kind="graphics"></div>
+
+      <audio id="bed" src="assets/music/bed.mp3" data-start="0" data-duration="133.5" data-track-index="10" data-volume="0.5"></audio>
+      <audio id="chime" src="assets/sfx/chime.mp3" data-start="103.5" data-duration="3" data-track-index="10" data-volume="0.9"></audio>
+    </div>
+    <script>
+      var tl = gsap.timeline({ paused: true });
+      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

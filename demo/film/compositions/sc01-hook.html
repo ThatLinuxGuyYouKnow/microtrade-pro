@@ -1,0 +1,37 @@
+<html lang="en" data-composition-id="sc01">
+<head><meta charset="UTF-8" /><title>Hook</title></head>
+<body>
+<template>
+<style>
+#sc01-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc01-zoom { position: absolute; inset: 0; }
+#sc01-copy { position: absolute; left: 120px; bottom: 200px; z-index: 3; }
+#sc01-copy .kicker { display: block; margin-bottom: 22px; }
+#sc01-t1, #sc01-t2 { display: block; overflow: hidden; }
+#sc01-t1 > span, #sc01-t2 > span { display: inline-block; }
+</style>
+<div id="sc01-root" data-composition-id="sc01" data-duration="12">
+  <div id="sc01-zoom"><video id="sc01-video" class="clip" data-start="0" data-duration="12" data-track-index="0" muted playsinline src="assets/video/hero_panel.mp4"></video></div>
+  <audio id="sc01-vo" src="assets/vo/01-hook.mp3" data-start="0.6" data-duration="9.65" data-track-index="11" data-volume="1"></audio>
+  <div id="sc01-copy">
+    <span class="kicker" id="sc01-kick">Cedar Hollow &middot; 9 homes &middot; 1 battery</span>
+    <span class="title" id="sc01-t1"><span>What if your neighborhood</span></span>
+    <span class="title" id="sc01-t2"><span>could <span class="accent">trade sunlight?</span></span></span>
+  </div>
+  <div id="sc01-cap" class="clip cap" data-start="1" data-duration="10" data-track-index="7"><span>In Cedar Hollow, nine homes already do.</span></div>
+</div>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+  tl.fromTo("#sc01-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 0.4);
+  tl.fromTo("#sc01-zoom", { scale: 1.0 }, { scale: 1.07, duration: 11.4, ease: "none" }, 0);
+  tl.fromTo("#sc01-t1 > span", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "power4.out" }, 0.8);
+  tl.fromTo("#sc01-t2 > span", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "power4.out" }, 1.0);
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc01"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

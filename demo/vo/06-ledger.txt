@@ -1,0 +1,1 @@
+Every contract settles on a verifiable ledger — signed transactions, Merkle roots, full history. Each delivered green kilowatt-hour mints a certificate, and retiring it makes the climate claim auditable forever. The same contracts live on Base Sepolia, a low-cost public chain.

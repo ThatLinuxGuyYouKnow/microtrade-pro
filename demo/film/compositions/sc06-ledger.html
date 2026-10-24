@@ -1,0 +1,43 @@
+<html lang="en" data-composition-id="sc06">
+<head><meta charset="UTF-8" /><title>Ledger</title></head>
+<body>
+<template>
+<style>
+#sc06-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc06-wrap { position: absolute; inset: -60px; }
+#sc06-wrap img { width: 100%; height: 100%; object-fit: cover; }
+#sc06-tag { position: absolute; left: 120px; bottom: 200px; z-index: 3; }
+#sc06-tag .kicker { display: block; margin-bottom: 16px; }
+</style>
+<div id="sc06-root" data-composition-id="sc06" data-duration="22">
+  <div id="sc06-wrap"><img class="clip" data-start="0" data-duration="22" data-track-index="0" src="assets/img/still_ledger.png" /></div>
+  <audio id="sc06-vo" src="assets/vo/06-ledger.mp3" data-start="1" data-duration="18.86" data-track-index="11" data-volume="1"></audio>
+  <div id="sc06-tag">
+    <span class="kicker" id="sc06-kick">Settle &middot; verifiable ledger</span>
+    <div class="tag" id="sc06-line"><span class="m">12 blocks</span> &middot; 109 txs &middot; <span class="m">37 RECs</span> &middot; integrity Valid</div>
+  </div>
+  <div id="sc06-cap" class="clip cap" data-start="1" data-duration="20" data-track-index="7"><span>Every settlement signed and verifiable.</span></div>
+</div>
+<script>
+(function () {
+  function camMove(tl, target, at, opts) {
+    opts = opts || {};
+    gsap.set(target, { transformPerspective: 1200, transformOrigin: opts.origin || "50% 50%" });
+    tl.to(target, { scale: 1 + (opts.zoom || 0.11), x: opts.slideX || 0, y: opts.slideY || 0, duration: opts.dur || 1.2, ease: "power2.inOut" }, at);
+  }
+  function camReset(tl, target, at, dur) {
+    tl.to(target, { scale: 1, x: 0, y: 0, duration: dur || 1.2, ease: "power2.inOut" }, at);
+  }
+  var tl = gsap.timeline({ paused: true });
+  tl.fromTo("#sc06-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 1.2);
+  tl.fromTo("#sc06-line", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" }, 1.5);
+  camMove(tl, "#sc06-wrap", 5, { zoom: 0.13, origin: "60% 45%", slideY: -20, dur: 1.0 });
+  camReset(tl, "#sc06-wrap", 19, 1.2);
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc06"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

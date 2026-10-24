@@ -1,0 +1,1 @@
+Every agent trains its own forecasting model on three weeks of meter history and live weather. Load and solar, forty-eight hours out, with honest uncertainty bands. Across nine homes, the average error is under eight percent — sixty percent better than guessing.

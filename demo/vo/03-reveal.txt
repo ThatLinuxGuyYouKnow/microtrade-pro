@@ -1,0 +1,1 @@
+MicroTrade Pro turns the neighborhood into a market. Each home runs an AI agent that predicts its own supply and demand — then trades with its neighbors, automatically.

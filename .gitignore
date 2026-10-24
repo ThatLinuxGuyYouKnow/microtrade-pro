@@ -10,3 +10,5 @@ smoke.ts
 debug.ts
 debug2.ts
 debug3.ts
+demo/film/renders/*.mp4
+demo/film/.hyperframes/artifacts/

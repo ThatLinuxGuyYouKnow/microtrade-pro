@@ -1,0 +1,76 @@
+<html lang="en" data-composition-id="sc03">
+<head><meta charset="UTF-8" /><title>Reveal</title></head>
+<body>
+<template>
+<style>
+#sc03-root { position: absolute; inset: 0; overflow: hidden; background: #060908; }
+#sc03-copy { position: absolute; left: 120px; top: 150px; z-index: 4; }
+#sc03-copy .kicker { display: block; margin-bottom: 22px; }
+#sc03-copy .title { font-size: 110px; }
+/* --- inlined oversized-cursor (ids prefixed c3) --- */
+#c3-box { position: absolute; inset: 0; overflow: hidden; isolation: isolate; container-type: size; z-index: 5; pointer-events: none; }
+.c3-stage { position: absolute; inset: 0; }
+.c3-target { position: absolute; left: 50%; top: 50%; padding: 0.6cqw 1cqw; border-radius: 0.55cqw; border: 1px solid rgba(255,255,255,0.14); background: #0c1210; box-shadow: 0 1px 2px rgba(0,0,0,0.4); z-index: 10; }
+.c3-row { display: flex; align-items: center; gap: 0.45cqw; }
+.c3-check { width: 1cqw; height: 1cqw; min-width: 14px; min-height: 14px; flex: none; fill: none; stroke: #34d399; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.c3-label { font-family: "Inter", sans-serif; font-size: clamp(12px, 1cqw, 20px); font-weight: 600; color: #e8f1ed; white-space: nowrap; }
+.c3-cursor { position: absolute; left: 0; top: 0; width: 11.67cqw; height: 11.67cqw; pointer-events: none; filter: drop-shadow(0 0.52cqw 0.73cqw rgba(0,0,0,0.5)); z-index: 20; }
+.c3-cursor svg { display: block; width: 100%; height: 100%; fill: #ffffff; stroke: #141414; stroke-width: 1.4; stroke-linejoin: round; }
+</style>
+<div id="sc03-root" data-composition-id="sc03" data-duration="12.5">
+  <img class="clip" data-start="0" data-duration="6" data-track-index="0" src="assets/img/still_overview.png" style="object-fit: cover; width: 100%; height: 100%;" />
+  <img class="clip" data-start="6" data-duration="6.5" data-track-index="0" src="assets/img/still_agents.png" style="object-fit: cover; width: 100%; height: 100%;" />
+  <audio id="sc03-vo" src="assets/vo/03-reveal.mp3" data-start="0.5" data-duration="10.73" data-track-index="11" data-volume="1"></audio>
+  <div id="sc03-copy">
+    <span class="kicker" id="sc03-kick">The reveal</span>
+    <span class="title" id="sc03-title">MicroTrade <span class="accent">Pro</span></span>
+    <span class="sub" id="sc03-sub">A market for your rooftop. Nine agents, trading while you sleep.</span>
+  </div>
+  <div id="c3-box">
+    <div class="c3-stage">
+      <div class="c3-target" id="c3-target"><div class="c3-row">
+        <svg class="c3-check" id="c3-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
+        <span class="c3-label" id="c3-label">Alder House</span>
+      </div></div>
+      <div class="c3-cursor" id="c3-cursor"><svg viewBox="0 0 24 24"><path d="M5 3 L5 19 L9 15 L12 22 L15 20.5 L11.5 14 L18 14 Z" /></svg></div>
+    </div>
+  </div>
+  <div id="sc03-cap" class="clip cap" data-start="6.2" data-duration="5.5" data-track-index="7"><span>MicroTrade Pro — a market for rooftops.</span></div>
+</div>
+<script>
+(function () {
+  var stage = document.getElementById("c3-box");
+  var cursor = document.getElementById("c3-cursor");
+  var target = document.getElementById("c3-target");
+  var check = document.getElementById("c3-check");
+  var stageW = 1920, stageH = 1080;
+  function xAt(p) { return (p / 100) * stageW; }
+  function yAt(p) { return (p / 100) * stageH; }
+  gsap.set(cursor, { xPercent: -20.83, yPercent: -12.5 });
+  gsap.set(target, { xPercent: -50, yPercent: -50 });
+  target.style.left = "52%"; target.style.top = "30%";
+
+  var tl = gsap.timeline({ paused: true });
+  tl.fromTo("#sc03-kick", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 6.4);
+  tl.fromTo("#sc03-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" }, 6.6);
+  tl.fromTo("#sc03-sub", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" }, 7.1);
+
+  // cursor: enters 2.8, clicks Alder at 3.5, exits by 5.6 (cut to agents)
+  var c0 = 2.8;
+  tl.set(cursor, { scale: 1 }, c0);
+  tl.fromTo(cursor, { x: xAt(48), y: yAt(116) }, { x: xAt(52), y: yAt(30), duration: 0.5, ease: "power3.out" }, c0);
+  tl.to(cursor, { scale: 0.9, duration: 0.1, ease: "power2.in", transformOrigin: "20.83% 12.5%" }, c0 + 0.7);
+  tl.to(cursor, { scale: 1, duration: 0.22, ease: "power2.out", transformOrigin: "20.83% 12.5%" }, c0 + 0.8);
+  tl.to(target, { scale: 0.96, duration: 0.1, ease: "power2.in" }, c0 + 0.7);
+  tl.to(target, { scale: 1, duration: 0.22, ease: "power2.out" }, c0 + 0.8);
+  tl.to(check, { opacity: 1, duration: 0.3, ease: "power2.out" }, c0 + 0.8);
+  tl.to(cursor, { y: yAt(120), duration: 0.4, ease: "power2.in" }, 5.2);
+
+  tl.seek(0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["sc03"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>
