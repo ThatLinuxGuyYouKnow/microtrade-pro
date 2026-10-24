@@ -64,12 +64,13 @@ src/     pages/Overview|Forecast|Market|Ledger|Agents|Docs
          components/MicrogridScene|Charts|ui  lib/store|api|format
 contracts/MicroTradeEnergy.sol (V1, deployed Sepolia) + MicroTradeEnergyV2.sol (hardened: staked bond, oracle-gated settle/mint, reentrancy guard)   tests/auction|model|ledger
 
-## Deployments (Sepolia testnet, chain 11155111)
+## Deployments
 
-- V1 `MicroTradeEnergy` — `0x8d1e4ad61a2e4071707b512473652924b8E4c914` (tagged `sepolia-v1`; demo-grade, bond not escrowed)
-- V2 `MicroTradeEnergyV2` — `0x2f7EbFA1942B97F74D428226CcA48dD643794E78` (staked bond, oracle-gated, nonReentrant)
+- V2 `MicroTradeEnergyV2` on **Base Sepolia** (chain 84532) — `0x45C0Be734cF808fcab42E285F33a7a811cc8EB00` ← headline deployment
+- V2 `MicroTradeEnergyV2` on Ethereum Sepolia (chain 11155111) — `0x2f7EbFA1942B97F74D428226CcA48dD643794E78` (mirror)
+- V1 `MicroTradeEnergy` on Ethereum Sepolia — `0x8d1e4ad61a2e4071707b512473652924b8E4c914` (tagged `sepolia-v1`; demo-grade, bond not escrowed)
 
-Source verification on the block explorer is pending; verify with the exact
+Source verification on the block explorers is pending; verify with the exact
 compiler version + optimizer settings used at deploy time.
 data/    state.json (persisted world)  weather-cache.json
 ```
