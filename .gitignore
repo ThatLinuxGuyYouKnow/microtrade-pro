@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-server/
+data/state.json
+data/weather-cache.json
+*.log
+.DS_Store
+/tmp/opencode/
+smoke.ts
+debug.ts
+debug2.ts
+debug3.ts
