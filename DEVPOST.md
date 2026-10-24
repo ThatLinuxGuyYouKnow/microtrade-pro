@@ -20,7 +20,7 @@ back at full price. The grid takes its cut both ways, and the carbon savings are
 counted. We wanted a market where a neighborhood trades sunlight with itself, settled
 fairly and verifiably.
 
-![Live 3D microgrid: nine homes around a community battery](docs/images/microgrid.png)
+![Live 3D microgrid: nine homes around a community battery](https://raw.githubusercontent.com/ThatLinuxGuyYouKnow/microtrade-pro/main/docs/images/microgrid.png)
 
 ## What it does
 
@@ -29,30 +29,30 @@ runs a forecasting agent that predicts its own supply and demand, bids into a da
 auction, signs forward contracts, and settles delivery — with every green kilowatt-hour
 retired as an auditable climate claim.
 
-![Neighborhood overview dashboard](docs/images/overview.png)
+![Neighborhood overview dashboard](https://raw.githubusercontent.com/ThatLinuxGuyYouKnow/microtrade-pro/main/docs/images/overview.png)
 
 **Predict.** Every agent trains its own ridge-ensemble model on three weeks of meter
 history plus live weather, publishing 48-hour load and solar curves with honest
 uncertainty bands — about 10% error, 62% better than guessing.
 
-![48-hour forecast with P10–P90 bands](docs/images/forecast.png)
+![48-hour forecast with P10–P90 bands](https://raw.githubusercontent.com/ThatLinuxGuyYouKnow/microtrade-pro/main/docs/images/forecast.png)
 
 **Trade.** Each morning the agents bid into a uniform-price double auction. One clearing
 price per hour. Matched trades become forward contracts: the buyer escrows payment, the
 seller stakes a 12% bond that is slashed if the sun doesn't deliver.
 
-![Day-ahead double auction and forward book](docs/images/market.png)
+![Day-ahead double auction and forward book](https://raw.githubusercontent.com/ThatLinuxGuyYouKnow/microtrade-pro/main/docs/images/market.png)
 
 **Settle.** Delivery is metered hourly against the contract. Escrow releases, shortfalls
 slash bonds, and each delivered green kWh mints a GreenREC. The ledger is a signed,
 Merkle-committed chain — and the same contracts live on a public testnet (below).
 
-![Verifiable settlement ledger with RECs](docs/images/ledger.png)
+![Verifiable settlement ledger with RECs](https://raw.githubusercontent.com/ThatLinuxGuyYouKnow/microtrade-pro/main/docs/images/ledger.png)
 
 **Agents.** Nine autonomous household agents — forecasters, market makers, a battery
 operator — coordinate the whole day while you sleep.
 
-![Agent fleet](docs/images/agents.png)
+![Agent fleet](https://raw.githubusercontent.com/ThatLinuxGuyYouKnow/microtrade-pro/main/docs/images/agents.png)
 
 ## The smart contracts — deployed, not vaporware
 
